@@ -169,6 +169,12 @@ class TestReproducibility(unittest.TestCase):
         self.assertEqual(committed["report_sha256"], live["report_sha256"])
         self.assertEqual(committed["guard"], live["guard"])
         self.assertEqual(committed["classes"], live["classes"])
+        self.assertEqual(committed["ipv4_oracle"], live["ipv4_oracle"])
+
+    def test_oracle_result_is_committed(self):
+        committed = json.loads(COMMITTED.read_text())
+        self.assertEqual(committed["ipv4_oracle"]["checked"], 154)
+        self.assertEqual(committed["ipv4_oracle"]["mismatch_count"], 0)
 
     def test_report_hash_excludes_nothing_volatile(self):
         first = audit()

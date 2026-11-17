@@ -135,6 +135,7 @@ def audit() -> dict:
                     })
 
     guard = build_guard(urls, py, refs)
+    oracle = verify_ipv4_oracle(urls, refs)
 
     summary = {
         "meta": {
@@ -150,6 +151,7 @@ def audit() -> dict:
         "classes": {name: dict(sorted(classes[name].items())) for name in PY_PARSERS},
         "families": {name: dict(sorted(families[name].items())) for name in PY_PARSERS},
         "guard": guard,
+        "ipv4_oracle": oracle,
         "witnesses": {name: witnesses[name] for name in PY_PARSERS},
     }
     summary["report_sha256"] = hashlib.sha256(
@@ -252,6 +254,7 @@ def save(summary: dict, outdir) -> dict:
         "report_sha256": summary["report_sha256"],
         "classes": summary["classes"],
         "guard": summary["guard"],
+        "ipv4_oracle": summary["ipv4_oracle"],
         "witnesses": summary["witnesses"],
     }
     findings_path.write_text(json.dumps(findings, indent=2, sort_keys=True) + "\n")

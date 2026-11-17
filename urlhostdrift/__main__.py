@@ -32,9 +32,7 @@ def cmd_run(args) -> int:
     summary = audit()
     paths = save(summary, args.out)
     _print_summary(summary)
-    corpus = build_corpus()
-    refs = parse_reference(corpus["urls"])
-    oracle = verify_ipv4_oracle(corpus["urls"], refs)
+    oracle = summary["ipv4_oracle"]
     print(f"ipv4 oracle: checked={oracle['checked']} mismatches={oracle['mismatch_count']}")
     print(f"wrote: {paths['summary']}, {paths['findings']}")
     return 0

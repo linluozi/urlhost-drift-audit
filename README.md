@@ -102,8 +102,9 @@ python3 -m venv .venv && .venv/bin/pip install urllib3 yarl
 ## 证据与可复现性
 
 * `evidence/summary.json` — full report, `report_sha256 =
-  e0df05396034f071b2660214e7e81d09d6a32a55210f5f2c95f79a6fe09d2db7`
-  (canonical JSON of everything except the digest itself).
+  e966e40e887eeae9b9a618909f6e24a6230b01f88e9010de94c89d019161af96`
+  (canonical JSON of everything except the digest itself), including the
+  `ipv4_oracle` block (`checked=154`, `mismatch_count=0`).
 * `evidence/findings.json` — every class count, every guard and every witness.
 * The digest is stable across runs; `tests/test_diff.py` re-runs the audit
   twice and also asserts the committed file equals a fresh run byte-for-byte in

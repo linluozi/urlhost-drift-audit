@@ -5393,6 +5393,11 @@
       }
     }
   },
+  "ipv4_oracle": {
+    "checked": 154,
+    "mismatch_count": 0,
+    "mismatches": []
+  },
   "meta": {
     "corpus_duplicates": 28,
     "corpus_raw": 1505,
@@ -5412,7 +5417,7 @@
       "yarl": "1.25.1"
     }
   },
-  "report_sha256": "e0df05396034f071b2660214e7e81d09d6a32a55210f5f2c95f79a6fe09d2db7",
+  "report_sha256": "e966e40e887eeae9b9a618909f6e24a6230b01f88e9010de94c89d019161af96",
   "witnesses": {
     "stdlib": [
       {
